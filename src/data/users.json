@@ -1,0 +1,80 @@
+
+[
+  {
+    "id": "foodie-fan-01",
+    "name": "FoodieFan",
+    "email": "foodie.fan@example.com",
+    "isAdmin": false,
+    "favorites": ["1"],
+    "favoriteCuisines": ["Italian"],
+    "readHistory": ["1", "2"],
+    "country": "Italy",
+    "dietaryPreference": "All"
+  },
+  {
+    "id": "chef-marco-01",
+    "name": "ChefMarco",
+    "email": "chef.marco@example.com",
+    "isAdmin": false,
+    "favorites": ["1", "2"],
+    "favoriteCuisines": ["Italian", "Indian"],
+    "readHistory": ["1", "2", "3"],
+    "country": "Italy",
+    "dietaryPreference": "Non-Vegetarian"
+  },
+  {
+    "id": "spice-master-01",
+    "name": "SpiceMaster",
+    "email": "spice.master@example.com",
+    "isAdmin": false,
+    "favorites": ["2"],
+    "favoriteCuisines": ["Indian"],
+    "readHistory": ["2", "3"],
+    "country": "India",
+    "dietaryPreference": "All"
+  },
+  {
+    "id": "gourmet-guy-01",
+    "name": "GourmetGuy",
+    "email": "gourmet.guy@example.com",
+    "isAdmin": false,
+    "favorites": ["3"],
+    "favoriteCuisines": ["French"],
+    "readHistory": ["1", "3"],
+    "country": "France",
+    "dietaryPreference": "All"
+  },
+  {
+    "id": "cheese-lover-01",
+    "name": "CheeseLover",
+    "email": "cheese.lover@example.com",
+    "isAdmin": false,
+    "favorites": ["3"],
+    "favoriteCuisines": ["French", "Italian"],
+    "readHistory": ["1", "2", "3"],
+    "country": "France",
+    "dietaryPreference": "Vegetarian"
+  },
+   {
+    "id": "recipe-lover-01",
+    "name": "RecipeLover",
+    "email": "user@reciperadar.com",
+    "isAdmin": false,
+    "favorites": ["2", "3"],
+    "favoriteCuisines": ["Indian", "French"],
+    "readHistory": ["1", "2"],
+    "country": "USA",
+    "dietaryPreference": "All"
+  },
+  {
+    "id": "admin-user-01",
+    "name": "Admin User",
+    "email": "admin@reciperadar.com",
+    "isAdmin": true,
+    "favorites": ["1"],
+    "favoriteCuisines": ["Italian"],
+    "readHistory": ["1", "2", "3"],
+    "country": "USA",
+    "dietaryPreference": "All"
+  }
+]

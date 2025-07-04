@@ -1,0 +1,322 @@
+
+[
+  {
+    "id": "1",
+    "name": "Spaghetti Carbonara",
+    "region": "Italian",
+    "description": "A classic Italian pasta dish made with eggs, hard cheese, cured pork, and black pepper.",
+    "prepTime": "10 minutes",
+    "cookTime": "15 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.5,
+    "ratingCount": 2,
+    "favoriteCount": 15,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "200g spaghetti",
+      "100g guanciale or pancetta",
+      "2 large eggs",
+      "50g Pecorino Romano cheese",
+      "Salt and black pepper to taste"
+    ],
+    "steps": [
+      "Cook the pasta in a large pot of boiling salted water until al dente.",
+      "While the pasta is cooking, heat a large skillet over medium heat. Add the guanciale and cook until crisp and golden.",
+      "In a small bowl, whisk together the eggs and Pecorino Romano cheese.",
+      "Drain the pasta, reserving some of the pasta water. Add the pasta to the skillet with the guanciale and toss to combine.",
+      "Remove the skillet from the heat and pour in the egg and cheese mixture, stirring quickly to create a creamy sauce. If the sauce is too thick, add a little pasta water.",
+      "Season with black pepper and serve immediately."
+    ],
+    "tips": [
+      { "id": "t1", "userId": "foodie-fan-01", "userName": "FoodieFan", "tip": "For an extra creamy sauce, use one whole egg and one egg yolk.", "rating": 5, "createdAt": "2023-01-15T12:00:00Z", "modifiedAt": "2023-01-15T12:00:00Z" },
+      { "id": "t2", "userId": "chef-marco-01", "userName": "ChefMarco", "tip": "Don't let the pan be too hot when adding the egg mixture, or you'll get scrambled eggs!", "rating": 4, "createdAt": "2023-02-20T18:30:00Z", "modifiedAt": "2023-02-20T18:30:00Z" }
+    ]
+  },
+  {
+    "id": "2",
+    "name": "Chicken Tikka Masala",
+    "region": "Indian",
+    "description": "Chunks of roasted marinated chicken in a spiced curry sauce.",
+    "prepTime": "20 minutes (plus marination time)",
+    "cookTime": "30 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 5,
+    "ratingCount": 1,
+    "favoriteCount": 25,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "500g boneless, skinless chicken breasts, cut into chunks",
+      "1 cup plain yogurt",
+      "1 tbsp lemon juice",
+      "2 tsp ground cumin",
+      "2 tsp paprika",
+      "1 tsp garam masala",
+      "1 cup tomato puree",
+      "1 cup heavy cream",
+      "1 tbsp ginger-garlic paste"
+    ],
+    "steps": [
+      "In a bowl, combine yogurt, lemon juice, cumin, paprika, garam masala, and ginger-garlic paste. Add chicken and toss to coat. Marinate for at least 1 hour.",
+      "Preheat grill or oven to high. Thread chicken onto skewers and grill for 10-15 minutes, or until cooked through.",
+      "To make the sauce, heat oil in a large saucepan over medium heat. Add onion and cook until soft. Stir in tomato puree and cook for 5 minutes.",
+      "Stir in heavy cream and simmer for 10 minutes. Add grilled chicken to the sauce and simmer for 5 more minutes.",
+      "Garnish with fresh cilantro and serve with rice or naan."
+    ],
+    "tips": [
+      { "id": "t3", "userId": "spice-master-01", "userName": "SpiceMaster", "tip": "Toasting the spices before adding them to the marinade really brings out their flavor.", "rating": 5, "createdAt": "2023-03-10T09:00:00Z", "modifiedAt": "2023-03-11T14:20:00Z" }
+    ]
+  },
+  {
+    "id": "3",
+    "name": "Classic French Onion Soup",
+    "region": "French",
+    "description": "A rich and savory soup made with caramelized onions, beef broth, and topped with crusty bread and melted cheese.",
+    "prepTime": "15 minutes",
+    "cookTime": "1 hour 30 minutes",
+    "servings": "6",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.5,
+    "ratingCount": 2,
+    "favoriteCount": 8,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+        "4 large yellow onions, thinly sliced",
+        "4 tbsp unsalted butter",
+        "2 tbsp olive oil",
+        "1 tsp sugar",
+        "1/2 cup dry white wine or sherry",
+        "8 cups beef broth",
+        "6 slices of baguette, toasted",
+        "1 1/2 cups grated Gruyère cheese"
+    ],
+    "steps": [
+        "In a large pot or Dutch oven, melt butter with olive oil over medium heat. Add onions, sugar, and a pinch of salt. Cook, stirring occasionally, until deeply caramelized, about 45-60 minutes.",
+        "Deglaze the pot by pouring in the white wine and scraping up any browned bits from the bottom.",
+        "Add the beef broth, bring to a simmer, and cook for at least 30 minutes to allow the flavors to meld. Season with salt and pepper to taste.",
+        "Preheat the broiler. Ladle the soup into oven-safe bowls.",
+        "Top each bowl with a slice of toasted baguette and a generous amount of Gruyère cheese.",
+        "Place the bowls on a baking sheet and broil until the cheese is bubbly and golden brown, about 2-3 minutes. Serve immediately."
+    ],
+    "tips": [
+        { "id": "t4", "userId": "gourmet-guy-01", "userName": "GourmetGuy", "tip": "Patience is key for caramelizing the onions. Don't rush this step!", "rating": 5, "createdAt": "2023-04-05T20:00:00Z", "modifiedAt": "2023-04-05T20:00:00Z" },
+        { "id": "t5", "userId": "cheese-lover-01", "userName": "CheeseLover", "tip": "A mix of Gruyère and a little bit of Parmesan on top gives it a great flavor kick.", "rating": 4, "createdAt": "2023-04-06T11:45:00Z", "modifiedAt": "2023-04-06T11:45:00Z" }
+    ]
+  },
+  {
+    "id": "4",
+    "name": "Cheesy Mac and Cheese",
+    "region": "Kids",
+    "description": "A super simple and delicious homemade macaroni and cheese that kids will love.",
+    "prepTime": "5 minutes",
+    "cookTime": "15 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.8,
+    "ratingCount": 1,
+    "favoriteCount": 30,
+    "published": true,
+    "dietaryType": "Vegetarian",
+    "ingredients": [
+      "2 cups elbow macaroni",
+      "2 cups shredded cheddar cheese",
+      "1/2 cup Parmesan cheese",
+      "3 tbsp butter",
+      "3 tbsp all-purpose flour",
+      "2 cups milk",
+      "1/2 tsp salt",
+      "1/4 tsp black pepper"
+    ],
+    "steps": [
+      "Cook macaroni according to package directions. Drain well.",
+      "In a saucepan, melt butter over medium heat. Stir in flour, salt, and pepper until smooth; cook 1 minute, stirring constantly.",
+      "Gradually stir in milk. Heat to boiling, stirring constantly; cook and stir 2 minutes or until thickened.",
+      "Reduce heat to low. Stir in cheeses until melted.",
+      "Add cooked macaroni; stir to coat.",
+      "Serve immediately. Enjoy!"
+    ],
+    "tips": [
+       { "id": "t6", "userId": "parent-cook-01", "userName": "ParentCook", "tip": "A little bit of mustard powder adds a nice tang without being spicy for the kids.", "rating": 5, "createdAt": "2023-05-10T10:00:00Z", "modifiedAt": "2023-05-10T10:00:00Z" }
+    ]
+  },
+  {
+    "id": "5",
+    "name": "Classic Seafood Paella",
+    "region": "Spanish",
+    "description": "A classic Spanish rice dish from Valencia, brimming with fresh seafood like shrimp, mussels, and clams.",
+    "prepTime": "25 minutes",
+    "cookTime": "40 minutes",
+    "servings": "6",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.7,
+    "ratingCount": 0,
+    "favoriteCount": 18,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "1 lb bomba rice",
+      "2 lbs mixed seafood (shrimp, mussels, clams)",
+      "1 large onion, chopped",
+      "4 cloves garlic, minced",
+      "1 can (14.5 oz) diced tomatoes",
+      "4 cups chicken broth",
+      "1 tsp saffron threads",
+      "1 tbsp paprika",
+      "Olive oil"
+    ],
+    "steps": [
+      "In a large paella pan, heat olive oil over medium-high heat. Add onion and garlic and cook until softened.",
+      "Add diced tomatoes and paprika and cook for 5 minutes.",
+      "Stir in the rice and cook for 1-2 minutes until coated.",
+      "Add the chicken broth and saffron threads. Bring to a boil, then reduce heat and simmer for 15-20 minutes, without stirring.",
+      "Arrange the seafood over the top of the rice. Cover and cook for another 5-10 minutes, or until seafood is cooked through and mussels have opened.",
+      "Remove from heat and let it rest for 5 minutes before serving."
+    ],
+    "tips": []
+  },
+  {
+    "id": "6",
+    "name": "Authentic Tacos al Pastor",
+    "region": "Mexican",
+    "description": "Thinly sliced marinated pork, pineapple, onions, and cilantro served on small corn tortillas. A true taste of Mexico City.",
+    "prepTime": "30 minutes (plus marination)",
+    "cookTime": "25 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.9,
+    "ratingCount": 0,
+    "favoriteCount": 42,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "2 lbs boneless pork shoulder, thinly sliced",
+      "1/2 cup pineapple juice",
+      "1/4 cup white vinegar",
+      "2 tbsp achiote paste",
+      "1 tbsp chili powder",
+      "1 tsp cumin",
+      "1 pineapple, peeled, cored, and sliced",
+      "Corn tortillas, white onion, and cilantro for serving"
+    ],
+    "steps": [
+      "Blend pineapple juice, vinegar, achiote paste, chili powder, and cumin to make the marinade.",
+      "Pour the marinade over the pork and let it sit for at least 4 hours, or overnight.",
+      "Preheat a grill or large skillet. Cook the marinated pork until slightly charred and cooked through.",
+      "Grill the pineapple slices until they have nice grill marks.",
+      "Chop the cooked pork and pineapple into small pieces.",
+      "Serve the pork and pineapple on warm corn tortillas, topped with diced white onion and fresh cilantro."
+    ],
+    "tips": []
+  },
+  {
+    "id": "7",
+    "name": "Rich Tonkotsu Ramen",
+    "region": "Japanese",
+    "description": "A rich and creamy pork bone broth ramen, topped with chashu pork, a soft-boiled egg, and green onions.",
+    "prepTime": "15 minutes",
+    "cookTime": "12 hours (for broth)",
+    "servings": "2",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.8,
+    "ratingCount": 0,
+    "favoriteCount": 35,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "2 lbs pork bones",
+      "1 lb pork belly (for chashu)",
+      "2 portions fresh ramen noodles",
+      "2 soft-boiled eggs (Ajitsuke Tamago)",
+      "Scallions, chopped",
+      "Nori (seaweed)",
+      "Soy sauce, mirin, sake for chashu marinade"
+    ],
+    "steps": [
+      "To make the broth, boil pork bones for 10 minutes, then drain and clean them. Return to a large pot with fresh water and simmer on low for 10-12 hours.",
+      "To make chashu, roll the pork belly and tie with kitchen twine. Sear all sides, then simmer in a mixture of soy sauce, mirin, and sake for 2 hours.",
+      "Cook the ramen noodles according to package directions.",
+      "To assemble, strain the tonkotsu broth into a bowl. Add the cooked noodles.",
+      "Top with slices of chashu pork, a halved soft-boiled egg, chopped scallions, and a sheet of nori."
+    ],
+    "tips": []
+  },
+  {
+    "id": "8",
+    "name": "Hearty Lentil Shepherd's Pie",
+    "region": "Vegetarian",
+    "description": "A comforting and savory vegan shepherd's pie with a rich lentil filling and a creamy mashed potato topping.",
+    "prepTime": "20 minutes",
+    "cookTime": "45 minutes",
+    "servings": "6",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.6,
+    "ratingCount": 0,
+    "favoriteCount": 22,
+    "published": true,
+    "dietaryType": "Vegan",
+    "ingredients": [
+      "1 cup brown or green lentils, rinsed",
+      "4 cups vegetable broth",
+      "1 onion, chopped",
+      "2 carrots, chopped",
+      "2 celery stalks, chopped",
+      "4 cloves garlic, minced",
+      "2 tbsp tomato paste",
+      "1 tsp dried thyme",
+      "2 lbs potatoes, peeled and quartered",
+      "1/2 cup plant-based milk",
+      "4 tbsp vegan butter or olive oil"
+    ],
+    "steps": [
+      "Boil potatoes in salted water until tender. Drain and mash with plant-based milk, vegan butter, salt, and pepper.",
+      "In a large pot, sauté onion, carrots, and celery until softened. Add garlic and cook for another minute.",
+      "Stir in tomato paste and thyme. Add lentils and vegetable broth. Bring to a boil, then simmer for 30-40 minutes until lentils are tender.",
+      "Preheat oven to 375°F (190°C).",
+      "Spread the lentil mixture into a baking dish. Top with the mashed potatoes, spreading evenly.",
+      "Bake for 20-25 minutes, or until the top is golden brown and the filling is bubbly."
+    ],
+    "tips": []
+  },
+  {
+    "id": "9",
+    "name": "Moroccan Chicken Tagine",
+    "region": "Moroccan",
+    "description": "A fragrant and flavorful Moroccan stew with tender chicken, apricots, and almonds, simmered with aromatic spices.",
+    "prepTime": "15 minutes",
+    "cookTime": "1 hour 15 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.7,
+    "ratingCount": 0,
+    "favoriteCount": 19,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "8 chicken thighs",
+      "1 large onion, chopped",
+      "3 cloves garlic, minced",
+      "1 tbsp grated fresh ginger",
+      "1 tsp turmeric",
+      "1 tsp cumin",
+      "1/2 tsp cinnamon",
+      "2 cups chicken broth",
+      "1 cup dried apricots",
+      "1/2 cup slivered almonds, toasted",
+      "Fresh cilantro for garnish"
+    ],
+    "steps": [
+      "In a tagine or Dutch oven, brown the chicken thighs on both sides. Remove and set aside.",
+      "In the same pot, sauté the onion, garlic, and ginger until soft.",
+      "Stir in the turmeric, cumin, and cinnamon, and cook for one minute until fragrant.",
+      "Return the chicken to the pot. Add the chicken broth and bring to a simmer.",
+      "Cover and cook on low heat for 1 hour, or until the chicken is tender.",
+      "Stir in the dried apricots and cook for another 10 minutes.",
+      "Garnish with toasted almonds and fresh cilantro before serving. Serve with couscous."
+    ],
+    "tips": []
+  }
+]
