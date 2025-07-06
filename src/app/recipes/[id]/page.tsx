@@ -24,6 +24,7 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { StarRating } from "@/components/star-rating";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 // ────────────────────────────────────────────
 //  TipDisplay Component
@@ -82,8 +83,9 @@ export default function RecipePage() {
 
   const [rating, setRating] = React.useState(0);
   const [tip, setTip] = React.useState("");
+  const [cookingStarted, setCookingStarted] = React.useState(!!userTip);
   const [currentStep, setCurrentStep] = React.useState(0);
-  const [finishedCooking, setFinishedCooking] = React.useState(false);
+  const [finishedCooking, setFinishedCooking] = React.useState(!!userTip);
   const [isCurrentStepConfirmed, setIsCurrentStepConfirmed] =
     React.useState(false);
 
@@ -198,128 +200,144 @@ export default function RecipePage() {
         </div>
 
         {/* ───── Hero Image ───── */}
-        <Card className="mb-8 overflow-hidden">
-          <Image
-            src={recipe.image}
-            alt={recipe.name}
-            width={800}
-            height={400}
-            className="w-full object-cover h-80"
-          />
-        </Card>
-
-        {/* ───── Main Grid ───── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* ─── Steps ─── */}
-          <div className="lg:col-span-2">
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl md:text-3xl">
-                  Step {currentStep + 1} / {totalSteps}
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="text-lg text-foreground/80 min-h-[120px]">
-                <p className="mb-6">{recipe.steps[currentStep]}</p>
-
-                <div className="flex items-center space-x-2">
-                  <Checkbox
-                    id={"step-confirm-" + currentStep}
-                    checked={isCurrentStepConfirmed}
-                    onCheckedChange={(chk) =>
-                      setIsCurrentStepConfirmed(!!chk)
-                    }
-                  />
-                  <label
-                    htmlFor={"step-confirm-" + currentStep}
-                    className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                  >
-                    I have completed this step
-                  </label>
-                </div>
-              </CardContent>
-
-              <CardFooter className="flex justify-between">
-                <Button
-                  onClick={handlePrevStep}
-                  disabled={currentStep === 0}
-                  variant="outline"
-                >
-                  Previous Step
-                </Button>
-
-                {currentStep < totalSteps - 1 ? (
-                  <Button
-                    onClick={handleNextStep}
-                    disabled={!isCurrentStepConfirmed}
-                  >
-                    Next Step
-                  </Button>
-                ) : (
-                  <Button
-                    onClick={handleFinishCooking}
-                    disabled={finishedCooking || !isCurrentStepConfirmed}
-                  >
-                    I&apos;m Done!
-                  </Button>
-                )}
-              </CardFooter>
+        <div className="flex justify-center mb-8">
+            <Card className="overflow-hidden w-full max-w-4xl">
+                <Image
+                    src={recipe.image}
+                    alt={recipe.name}
+                    width={800}
+                    height={400}
+                    className="w-full object-cover h-80"
+                />
             </Card>
-          </div>
+        </div>
 
-          {/* ─── Sidebar ─── */}
-          <div className="space-y-8">
-            {/* Details */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl md:text-3xl">
-                  Details
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4 text-lg">
-                <div className="flex items-center gap-4">
-                  <Clock className="w-6 h-6 text-primary" />
-                  <p>
-                    <strong>Prep time:</strong> {recipe.prepTime}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Clock className="w-6 h-6 text-primary" />
-                  <p>
-                    <strong>Cook time:</strong> {recipe.cookTime}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Users className="w-6 h-6 text-primary" />
-                  <p>
-                    <strong>Servings:</strong> {recipe.servings}
-                  </p>
-                </div>
-                <div className="flex items-center gap-4">
-                  <Star className="w-6 h-6 text-primary" />
-                  <p>
-                    <strong>Rating:</strong> {recipe.rating.toFixed(1)} (
-                    {recipe.ratingCount} reviews)
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
+        {/* ───── Main Content ───── */}
+        <div className="space-y-8">
+            {/* ─── Details & Ingredients ─── */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                 {/* Details */}
+                <Card>
+                <CardHeader>
+                    <h3 className="font-headline text-2xl md:text-3xl">
+                    Details
+                    </h3>
+                </CardHeader>
+                <CardContent className="space-y-4 text-lg">
+                    <div className="flex items-center gap-4">
+                    <Clock className="w-6 h-6 text-primary" />
+                    <p>
+                        <strong>Prep time:</strong> {recipe.prepTime}
+                    </p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                    <Clock className="w-6 h-6 text-primary" />
+                    <p>
+                        <strong>Cook time:</strong> {recipe.cookTime}
+                    </p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                    <Users className="w-6 h-6 text-primary" />
+                    <p>
+                        <strong>Servings:</strong> {recipe.servings}
+                    </p>
+                    </div>
+                    <div className="flex items-center gap-4">
+                    <Star className="w-6 h-6 text-primary" />
+                    <p>
+                        <strong>Rating:</strong> {recipe.rating.toFixed(1)} (
+                        {recipe.ratingCount} reviews)
+                    </p>
+                    </div>
+                </CardContent>
+                </Card>
 
-            {/* Ingredients */}
-            <Card>
-              <CardHeader>
-                <CardTitle className="font-headline text-2xl md:text-3xl">
-                  Ingredients
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <ul className="list-disc list-inside space-y-2 text-lg">
-                  {recipe.ingredients.map((ing, idx) => (
-                    <li key={idx}>{ing}</li>
-                  ))}
-                </ul>
-              </CardContent>
-            </Card>
-          </div>
+                {/* Ingredients */}
+                <Card>
+                <CardHeader>
+                    <h3 className="font-headline text-2xl md:text-3xl">
+                    Ingredients
+                    </h3>
+                </CardHeader>
+                <CardContent>
+                    <ul className="list-disc list-inside space-y-2 text-lg">
+                    {recipe.ingredients.map((ing, idx) => (
+                        <li key={idx}>{ing}</li>
+                    ))}
+                    </ul>
+                </CardContent>
+                </Card>
+            </div>
+
+            {/* ─── Steps ─── */}
+            <div>
+              {!cookingStarted ? (
+                <Card className="flex flex-col items-center justify-center text-center p-8 min-h-[280px]">
+                  <CardHeader>
+                    <h3 className="font-headline text-2xl md:text-3xl">
+                      Ready to Cook?
+                    </h3>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-muted-foreground mb-6">Shall we start the step-by-step guide?</p>
+                    <Button onClick={() => setCookingStarted(true)}>Start Cooking</Button>
+                  </CardContent>
+                </Card>
+              ) : (
+                <Card>
+                    <CardHeader>
+                        <h3 className="font-headline text-2xl md:text-3xl">
+                        Step {currentStep + 1} / {totalSteps}
+                        </h3>
+                    </CardHeader>
+                    <CardContent className="text-lg text-foreground/80 min-h-[120px]">
+                        <p className="mb-6">{recipe.steps[currentStep]}</p>
+
+                        <div className="flex items-center space-x-2">
+                        <Checkbox
+                            id={"step-confirm-" + currentStep}
+                            checked={isCurrentStepConfirmed}
+                            onCheckedChange={(chk) =>
+                            setIsCurrentStepConfirmed(!!chk)
+                            }
+                        />
+                        <label
+                            htmlFor={"step-confirm-" + currentStep}
+                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                        >
+                            I have completed this step
+                        </label>
+                        </div>
+                    </CardContent>
+
+                    <CardFooter className="flex justify-between">
+                        <Button
+                        onClick={handlePrevStep}
+                        disabled={currentStep === 0}
+                        variant="outline"
+                        >
+                        Previous Step
+                        </Button>
+
+                        {currentStep < totalSteps - 1 ? (
+                        <Button
+                            onClick={handleNextStep}
+                            disabled={!isCurrentStepConfirmed}
+                        >
+                            Next Step
+                        </Button>
+                        ) : (
+                        <Button
+                            onClick={handleFinishCooking}
+                            disabled={finishedCooking || !isCurrentStepConfirmed}
+                        >
+                            I&apos;m Done!
+                        </Button>
+                        )}
+                    </CardFooter>
+                </Card>
+              )}
+            </div>
         </div>
 
         {/* ───── Tips & Ratings ───── */}
@@ -332,17 +350,25 @@ export default function RecipePage() {
             {/* Community Tips */}
             <Card>
               <CardHeader>
-                <CardTitle className="font-headline text-2xl">
+                <h3 className="font-headline text-2xl">
                   Community Tips
-                </CardTitle>
+                </h3>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent>
                 {recipe.tips && recipe.tips.length > 0 ? (
-                  recipe.tips.map((t) => (
-                    <TipDisplay key={t.id} tip={t} />
-                  ))
+                  <ScrollArea className="h-72">
+                    <div className="space-y-4 pr-4">
+                      {recipe.tips.map((t) => (
+                        <TipDisplay key={t.id} tip={t} />
+                      ))}
+                    </div>
+                  </ScrollArea>
                 ) : (
-                  <p>No tips yet. Be the first to add one!</p>
+                  <div className="flex h-72 items-center justify-center">
+                    <p className="text-muted-foreground">
+                      No tips yet. Be the first to add one!
+                    </p>
+                  </div>
                 )}
               </CardContent>
             </Card>
@@ -351,9 +377,9 @@ export default function RecipePage() {
             {finishedCooking ? (
               <Card>
                 <CardHeader>
-                  <CardTitle className="font-headline text-2xl">
+                  <h3 className="font-headline text-2xl">
                     {userTip ? "Edit Your Tip & Rating" : "Leave a Tip & Rating"}
-                  </CardTitle>
+                  </h3>
                 </CardHeader>
                 <CardContent>
                   {user ? (

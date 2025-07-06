@@ -1,0 +1,52 @@
+
+[
+  {
+    "id": "group-1",
+    "name": "Healthy Eating Hub",
+    "description": "A place to share healthy recipes, tips for clean eating, and support each other's wellness journey.",
+    "creatorId": "foodie-fan-01",
+    "creatorName": "FoodieFan",
+    "createdAt": "2023-10-20T14:00:00Z",
+    "members": ["foodie-fan-01", "chef-marco-01", "recipe-lover-01"],
+    "posts": [
+      {
+        "id": "post-1-1",
+        "authorId": "recipe-lover-01",
+        "authorName": "RecipeLover",
+        "content": "Just tried the Hearty Lentil Shepherd's Pie! It's so delicious and filling. Has anyone else made it?",
+        "createdAt": "2023-10-26T10:00:00Z",
+        "likes": ["foodie-fan-01"],
+        "dislikes": [],
+        "comments": [
+          {
+            "id": "comment-1-1-1",
+            "authorId": "foodie-fan-01",
+            "authorName": "FoodieFan",
+            "content": "I love that one! It's a weekly staple in my house.",
+            "createdAt": "2023-10-26T11:30:00Z"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "group-2",
+    "name": "Italian Cuisine Lovers",
+    "description": "For everyone passionate about Italian food! Share your favorite pasta dishes, pizza creations, and regional specialties.",
+    "creatorId": "chef-marco-01",
+    "creatorName": "ChefMarco",
+    "createdAt": "2023-10-22T18:00:00Z",
+    "members": ["chef-marco-01", "gourmet-guy-01"],
+    "posts": []
+  },
+  {
+    "id": "group-3",
+    "name": "Spicy Food Fanatics",
+    "description": "Do you love the heat? This is the group for you. Share recipes that pack a punch and your favorite hot sauces.",
+    "creatorId": "spice-master-01",
+    "creatorName": "SpiceMaster",
+    "createdAt": "2023-11-01T09:15:00Z",
+    "members": ["spice-master-01"],
+    "posts": []
+  }
+]

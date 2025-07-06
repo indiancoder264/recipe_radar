@@ -744,5 +744,132 @@
       "Serve the vegetable stew over a bed of fluffy couscous."
     ],
     "tips": []
+  },
+  {
+    "id": "23",
+    "name": "Classic Lasagna",
+    "region": "Italian",
+    "description": "Layers of pasta, rich meat sauce, and creamy cheese, baked to perfection.",
+    "prepTime": "30 minutes",
+    "cookTime": "1 hour",
+    "servings": "8",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.9,
+    "ratingCount": 0,
+    "favoriteCount": 60,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "1 lb ground beef",
+      "1 jar (24 oz) marinara sauce",
+      "9 lasagna noodles, cooked",
+      "15 oz ricotta cheese",
+      "2 cups shredded mozzarella cheese",
+      "1/2 cup grated Parmesan cheese"
+    ],
+    "steps": [
+      "Preheat oven to 375°F (190°C).",
+      "In a skillet, brown the ground beef. Drain fat and stir in marinara sauce.",
+      "In a baking dish, spread a layer of meat sauce. Top with a layer of noodles, then a layer of ricotta cheese, and a layer of mozzarella.",
+      "Repeat the layers, ending with meat sauce and mozzarella on top.",
+      "Sprinkle with Parmesan cheese.",
+      "Bake for 45-60 minutes, until bubbly and golden brown. Let stand for 10 minutes before serving."
+    ],
+    "tips": []
+  },
+  {
+    "id": "24",
+    "name": "Fettuccine Alfredo",
+    "region": "Italian",
+    "description": "A simple yet elegant dish of fettuccine pasta tossed in a rich, creamy Parmesan cheese sauce.",
+    "prepTime": "5 minutes",
+    "cookTime": "15 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.7,
+    "ratingCount": 0,
+    "favoriteCount": 40,
+    "published": true,
+    "dietaryType": "Vegetarian",
+    "ingredients": [
+      "1 lb fettuccine",
+      "1 cup heavy cream",
+      "1/2 cup unsalted butter",
+      "1.5 cups grated Parmesan cheese",
+      "Salt and fresh black pepper",
+      "Fresh parsley, chopped"
+    ],
+    "steps": [
+      "Cook fettuccine according to package directions. Drain, reserving 1 cup of pasta water.",
+      "In a large skillet, melt butter over medium heat. Add heavy cream and bring to a simmer.",
+      "Reduce heat and stir in Parmesan cheese until melted and the sauce is smooth.",
+      "Add the cooked fettuccine to the skillet and toss to coat. Add reserved pasta water as needed to reach desired consistency.",
+      "Season with salt and pepper. Garnish with fresh parsley and serve immediately."
+    ],
+    "tips": []
+  },
+  {
+    "id": "25",
+    "name": "Classic Bruschetta",
+    "region": "Italian",
+    "description": "A classic Italian appetizer of grilled bread rubbed with garlic and topped with tomatoes, fresh basil, and olive oil.",
+    "prepTime": "15 minutes",
+    "cookTime": "5 minutes",
+    "servings": "6",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.6,
+    "ratingCount": 0,
+    "favoriteCount": 30,
+    "published": true,
+    "dietaryType": "Vegan",
+    "ingredients": [
+      "1 baguette, sliced 1/2-inch thick",
+      "4 ripe tomatoes, diced",
+      "1/2 cup fresh basil, chopped",
+      "1/4 cup extra virgin olive oil",
+      "2 cloves garlic, minced",
+      "Salt and pepper to taste"
+    ],
+    "steps": [
+      "Preheat grill or broiler. Toast bread slices until golden brown on both sides.",
+      "In a bowl, combine diced tomatoes, basil, olive oil, and minced garlic. Season with salt and pepper.",
+      "Rub one side of each toasted bread slice with a whole garlic clove (optional, for extra flavor).",
+      "Top each slice of bread with the tomato mixture.",
+      "Serve immediately."
+    ],
+    "tips": []
+  },
+  {
+    "id": "26",
+    "name": "Veal Marsala",
+    "region": "Italian",
+    "description": "Tender veal cutlets in a rich and savory mushroom and Marsala wine sauce.",
+    "prepTime": "10 minutes",
+    "cookTime": "20 minutes",
+    "servings": "4",
+    "image": "https://placehold.co/600x400.png",
+    "rating": 4.8,
+    "ratingCount": 0,
+    "favoriteCount": 25,
+    "published": true,
+    "dietaryType": "Non-Vegetarian",
+    "ingredients": [
+      "1 lb veal cutlets, pounded thin",
+      "1/2 cup all-purpose flour",
+      "8 oz mushrooms, sliced",
+      "1/2 cup Marsala wine",
+      "1 cup chicken broth",
+      "2 tbsp butter",
+      "2 tbsp olive oil"
+    ],
+    "steps": [
+      "Dredge veal cutlets in flour seasoned with salt and pepper.",
+      "In a large skillet, heat olive oil and 1 tbsp of butter. Cook the veal in batches until golden brown, about 2-3 minutes per side. Remove and set aside.",
+      "In the same skillet, add the remaining butter and sauté the mushrooms until browned.",
+      "Pour in the Marsala wine to deglaze the pan, scraping up any browned bits. Cook until the wine reduces by half.",
+      "Stir in the chicken broth and simmer until the sauce thickens slightly.",
+      "Return the veal to the pan and simmer for a few minutes to heat through. Serve immediately."
+    ],
+    "tips": []
   }
 ]

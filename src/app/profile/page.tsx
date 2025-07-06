@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useAuth, type User } from "@/lib/auth";
 import { useRecipes, type Recipe, type Tip } from "@/lib/recipes";
+import { useCommunity } from "@/lib/community";
 import { useToast } from "@/hooks/use-toast";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -15,7 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RecipeCard } from "@/components/recipe-card";
-import { Shield } from "lucide-react";
+import { Shield, FilePenLine, Users } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
@@ -41,6 +42,7 @@ function UserTip({ tip, recipe }: { tip: Tip; recipe: Recipe }) {
 export default function ProfilePage() {
   const { user, updateUser, updateFavoriteCuisines } = useAuth();
   const { recipes } = useRecipes();
+  const { groups } = useCommunity();
   const router = useRouter();
   const { toast } = useToast();
 
@@ -65,6 +67,17 @@ export default function ProfilePage() {
         setSelectedCuisines(user.favoriteCuisines);
     }
   }, [user, router]);
+
+  const createdGroups = React.useMemo(() => {
+    if (!user) return [];
+    return groups.filter(g => g.creatorId === user.id);
+  }, [groups, user]);
+
+  const memberGroups = React.useMemo(() => {
+    if (!user) return [];
+    // Exclude groups they created from the "member of" list
+    return groups.filter(g => g.members.includes(user.id) && g.creatorId !== user.id);
+  }, [groups, user]);
 
   if (!user) {
     return (
@@ -130,6 +143,7 @@ export default function ProfilePage() {
           <TabsTrigger value="account">Account Settings</TabsTrigger>
           <TabsTrigger value="favorites">Favorite Recipes ({favoriteRecipes.length})</TabsTrigger>
           <TabsTrigger value="activity">My Activity ({userTips.length})</TabsTrigger>
+          <TabsTrigger value="community">Community</TabsTrigger>
         </TabsList>
         
         <TabsContent value="account" className="space-y-8">
@@ -277,6 +291,52 @@ export default function ProfilePage() {
               )}
             </CardContent>
           </Card>
+        </TabsContent>
+
+        <TabsContent value="community">
+          <div className="space-y-8">
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2"><FilePenLine className="w-5 h-5"/> Groups You've Created</CardTitle>
+                <CardDescription>These are the communities you started.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {createdGroups.length > 0 ? (
+                  <div className="space-y-2">
+                    {createdGroups.map(group => (
+                      <Link key={group.id} href={`/community/${group.id}`} className="block p-3 rounded-md hover:bg-muted transition-colors">
+                        <p className="font-semibold text-primary">{group.name}</p>
+                        <p className="text-sm text-muted-foreground">{group.members.length} member(s) &middot; {group.posts.length} post(s)</p>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-center text-muted-foreground py-8">You haven't created any groups yet.</p>
+                )}
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="flex items-center gap-2"><Users className="w-5 h-5"/> Groups You're In</CardTitle>
+                <CardDescription>These are the communities you are a member of.</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {memberGroups.length > 0 ? (
+                  <div className="space-y-2">
+                    {memberGroups.map(group => (
+                      <Link key={group.id} href={`/community/${group.id}`} className="block p-3 rounded-md hover:bg-muted transition-colors">
+                         <p className="font-semibold text-primary">{group.name}</p>
+                        <p className="text-sm text-muted-foreground">{group.members.length} member(s) &middot; {group.posts.length} post(s)</p>
+                      </Link>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-center text-muted-foreground py-8">You haven't joined any groups yet.</p>
+                )}
+              </CardContent>
+            </Card>
+          </div>
         </TabsContent>
       </Tabs>
     </div>

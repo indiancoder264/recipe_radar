@@ -285,22 +285,19 @@ export default function Home() {
             const regionRecipes = dietaryFilteredRecipes.filter(
               (recipe) => recipe.region === region
             );
-            const displayedRecipes = regionRecipes.slice(0, 4);
+            const displayedRecipes = regionRecipes.slice(0, 6);
             const sectionTitle = region === 'Kids' ? 'Fun for Kids' : `${region} Cuisine`;
 
             if (displayedRecipes.length === 0) return null;
 
             return (
               <section key={region} className="mb-12">
-                <Link href={`/cuisine/${encodeURIComponent(region)}`} className="block mb-6 border-b-2 border-primary pb-2 group">
-                  <h2 className="font-headline text-3xl md:text-4xl font-bold flex items-center">
+                <div className="mb-6 border-b-2 border-primary pb-2">
+                  <h2 className="font-headline text-3xl md:text-4xl font-bold">
                     {sectionTitle}
-                    <span className="text-lg font-normal text-muted-foreground ml-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                      View All <ArrowRight className="inline h-4 w-4" />
-                    </span>
                   </h2>
-                </Link>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                   {displayedRecipes.map((recipe) => (
                     <RecipeCard 
                       key={recipe.id} 
@@ -308,6 +305,15 @@ export default function Home() {
                     />
                   ))}
                 </div>
+                {regionRecipes.length > 6 && (
+                    <div className="mt-8 text-center">
+                        <Button asChild variant="outline">
+                            <Link href={`/cuisine/${encodeURIComponent(region)}`}>
+                                View All {sectionTitle} Recipes <ArrowRight className="ml-2 h-4 w-4" />
+                            </Link>
+                        </Button>
+                    </div>
+                )}
               </section>
             );
           })}

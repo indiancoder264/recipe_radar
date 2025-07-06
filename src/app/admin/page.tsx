@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import React from "react";
 import { RecipeForm } from "@/components/admin/recipe-form";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { CommunityManagement } from "@/components/admin/community-management";
 
 export default function AdminPage() {
   const { user } = useAuth();
@@ -96,6 +97,7 @@ export default function AdminPage() {
           <TabsList className="mb-4">
             <TabsTrigger value="recipes">Recipes</TabsTrigger>
             <TabsTrigger value="tips">Tips</TabsTrigger>
+            <TabsTrigger value="community">Community</TabsTrigger>
             <TabsTrigger value="analytics">Analytics</TabsTrigger>
             <TabsTrigger value="users">Users</TabsTrigger>
           </TabsList>
@@ -113,6 +115,9 @@ export default function AdminPage() {
           </TabsContent>
           <TabsContent value="tips">
             <TipsTable tips={allTips} onDeleteTip={deleteTip} />
+          </TabsContent>
+          <TabsContent value="community">
+            <CommunityManagement />
           </TabsContent>
           <TabsContent value="users">
             <UserManagement />
