@@ -114,7 +114,7 @@ export default function Home() {
     <div className="container mx-auto px-4 py-8">
       <section className="relative mb-12 h-80 rounded-lg overflow-hidden">
         <Image
-          src="https://placehold.co/1200x400.png"
+          src="https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=1200&auto=format&fit=crop"
           alt="Delicious food collage"
           layout="fill"
           objectFit="cover"
@@ -285,14 +285,14 @@ export default function Home() {
             const regionRecipes = dietaryFilteredRecipes.filter(
               (recipe) => recipe.region === region
             );
-            const displayedRecipes = regionRecipes.slice(0, 6);
-            const sectionTitle = region === 'Kids' ? 'Fun for Kids' : `${region} Cuisine`;
+            const displayedRecipes = regionRecipes.slice(0, 4);
+            const sectionTitle = region === 'Kids' ? 'Fun for Kids' : region === 'Bachelor Plan' ? 'Bachelors Special' : `${region} Cuisine`;
 
             if (displayedRecipes.length === 0) return null;
 
             return (
               <section key={region} className="mb-12">
-                <div className="mb-6 border-b-2 border-primary pb-2">
+                <div className="flex justify-between items-center mb-6 border-b-2 border-primary pb-2">
                   <h2 className="font-headline text-3xl md:text-4xl font-bold">
                     {sectionTitle}
                   </h2>
@@ -305,14 +305,14 @@ export default function Home() {
                     />
                   ))}
                 </div>
-                {regionRecipes.length > 6 && (
-                    <div className="mt-8 text-center">
-                        <Button asChild variant="outline">
-                            <Link href={`/cuisine/${encodeURIComponent(region)}`}>
-                                View All {sectionTitle} Recipes <ArrowRight className="ml-2 h-4 w-4" />
-                            </Link>
-                        </Button>
-                    </div>
+                {regionRecipes.length > 4 && (
+                   <div className="mt-8 flex justify-center">
+                      <Button asChild variant="secondary">
+                          <Link href={`/cuisine/${encodeURIComponent(region)}`}>
+                              View All {sectionTitle} Recipes <ArrowRight className="ml-2 h-4 w-4" />
+                          </Link>
+                      </Button>
+                   </div>
                 )}
               </section>
             );

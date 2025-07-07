@@ -16,12 +16,18 @@ export default function CuisinePage() {
     
     // Decode region name from URL (e.g., "French%20Onion" -> "French Onion")
     const decodedRegion = React.useMemo(() => {
-        return params.region ? decodeURIComponent(params.region) : '';
+        let regionName = params.region ? decodeURIComponent(params.region as string) : '';
+        if (regionName === 'Bachelors Special') {
+            regionName = 'Bachelor Plan';
+        }
+        return regionName;
     }, [params.region]);
     
     const cuisineRecipes = recipes.filter(
         (recipe) => recipe.published && recipe.region === decodedRegion
     );
+
+    const pageTitle = decodedRegion === 'Kids' ? 'Fun for Kids' : decodedRegion === 'Bachelor Plan' ? 'Bachelors Special' : `${decodedRegion} Cuisine`;
 
     return (
         <div className="container mx-auto px-4 py-8">
@@ -31,9 +37,9 @@ export default function CuisinePage() {
             </Button>
 
             <div className="mb-8">
-                <h1 className="font-headline text-5xl font-bold">{decodedRegion} Cuisine</h1>
+                <h1 className="font-headline text-5xl font-bold">{pageTitle}</h1>
                 <p className="text-muted-foreground text-lg mt-2">
-                    Explore all the delicious recipes from {decodedRegion}.
+                    Explore all the delicious recipes from {pageTitle}.
                 </p>
             </div>
 
@@ -46,7 +52,7 @@ export default function CuisinePage() {
             ) : (
                 <Card className="flex items-center justify-center h-64">
                     <CardContent className="text-center text-muted-foreground p-6">
-                        <p className="text-lg">No recipes found for {decodedRegion} cuisine.</p>
+                        <p className="text-lg">No recipes found for {pageTitle}.</p>
                         <p>Check back later for new additions!</p>
                     </CardContent>
                 </Card>

@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { useCommunity, type Group } from "@/lib/community";
 import { useAuth } from "@/lib/auth";
 import { PlusCircle, Users } from "lucide-react";
+import React from "react";
 
 function GroupCard({ group }: { group: Group }) {
   const { user } = useAuth();
@@ -58,6 +59,10 @@ export default function CommunityPage() {
   const { groups } = useCommunity();
   const { user } = useAuth();
 
+  const sortedGroups = React.useMemo(() => {
+    return [...groups].sort((a, b) => b.members.length - a.members.length);
+  }, [groups]);
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex justify-between items-center mb-8">
@@ -76,7 +81,7 @@ export default function CommunityPage() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {groups.map((group) => (
+        {sortedGroups.map((group) => (
           <GroupCard key={group.id} group={group} />
         ))}
       </div>
