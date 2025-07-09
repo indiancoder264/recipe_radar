@@ -28,6 +28,12 @@ export function Footer() {
             </Link>
           </div>
         </div>
+        <div className="mt-6 pt-6 border-t border-secondary-foreground/20 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-secondary-foreground/80">
+          <Link href="/about" className="hover:text-primary transition-colors">About Us</Link>
+          <Link href="/contact" className="hover:text-primary transition-colors">Contact</Link>
+          <Link href="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
+          <Link href="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
+        </div>
       </div>
     </footer>
   );
