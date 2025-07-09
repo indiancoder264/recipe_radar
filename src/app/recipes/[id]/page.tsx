@@ -410,66 +410,74 @@ export default function RecipePage() {
             </Card>
 
             {/* Tip Form / Prompt */}
-            <Card>
-              <CardHeader>
-                <h3 className="font-headline text-2xl">
-                  {userTip ? "Edit Your Tip & Rating" : "Leave a Tip & Rating"}
-                </h3>
-              </CardHeader>
-              <CardContent>
-                {user ? (
-                  <form
-                    onSubmit={handleSubmitTip}
-                    className="space-y-4"
-                  >
-                    <div>
-                      <label className="text-lg font-medium mb-2 block">
-                        Your Rating
-                      </label>
-                      <StarRating
-                        rating={rating}
-                        onRate={setRating}
-                        readOnly={false}
-                      />
-                    </div>
+            {finishedCooking ? (
+              <Card>
+                <CardHeader>
+                  <h3 className="font-headline text-2xl">
+                    {userTip ? "Edit Your Tip & Rating" : "Leave a Tip & Rating"}
+                  </h3>
+                </CardHeader>
+                <CardContent>
+                  {user ? (
+                    <form
+                      onSubmit={handleSubmitTip}
+                      className="space-y-4"
+                    >
+                      <div>
+                        <label className="text-lg font-medium mb-2 block">
+                          Your Rating
+                        </label>
+                        <StarRating
+                          rating={rating}
+                          onRate={setRating}
+                          readOnly={false}
+                        />
+                      </div>
 
-                    <div>
-                      <label
-                        htmlFor="tip"
-                        className="text-lg font-medium mb-2 block"
-                      >
-                        Your Tip
-                      </label>
-                      <Textarea
-                        id="tip"
-                        placeholder="Share your cooking tip or suggestion…"
-                        value={tip}
-                        onChange={(e) => setTip(e.target.value)}
-                      />
-                    </div>
+                      <div>
+                        <label
+                          htmlFor="tip"
+                          className="text-lg font-medium mb-2 block"
+                        >
+                          Your Tip
+                        </label>
+                        <Textarea
+                          id="tip"
+                          placeholder="Share your cooking tip or suggestion…"
+                          value={tip}
+                          onChange={(e) => setTip(e.target.value)}
+                        />
+                      </div>
 
-                    <Button type="submit" className="w-full" disabled={!finishedCooking}>
-                      {userTip ? "Update Tip" : "Submit Tip"}
-                    </Button>
-                    {!finishedCooking && (
-                      <p className="text-center text-sm text-muted-foreground">
-                        Complete all cooking steps to submit a tip.
+                      <Button type="submit" className="w-full">
+                        {userTip ? "Update Tip" : "Submit Tip"}
+                      </Button>
+                    </form>
+                  ) : (
+                    <div className="text-center p-8 bg-muted rounded-lg">
+                      <p className="mb-4 text-lg">
+                        You must be logged in to leave a tip.
                       </p>
-                    )}
-                  </form>
-                ) : (
-                  <div className="text-center p-8 bg-muted rounded-lg flex flex-col justify-center h-full">
-                    <p className="mb-4 text-lg">
-                      You must be logged in to leave a tip.
-                    </p>
-                    <Button asChild>
-                      <Link href="/login">Log In</Link>
-                    </Button>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-          </div>
+                      <Button asChild>
+                        <Link href="/login">Log In</Link>
+                      </Button>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            ) : (
+              <div className="text-center p-8 bg-muted rounded-lg flex flex-col items-center justify-center h-full">
+                <p className="text-lg font-medium">
+                  Complete all cooking steps to leave a rating and
+                  tip.
+                </p>
+                <p className="text-muted-foreground">
+                  Follow the instructions above and click “I&apos;m
+                  Done!” to finish.
+                </p>
+              </div>
+            )}
+        </div>
         </div>
       </article>
     </div>
