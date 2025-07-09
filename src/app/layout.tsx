@@ -20,6 +20,8 @@ export default function RootLayout({
       <head>
         {/* adsense meta code */}
         <meta name="google-adsense-account" content="ca-pub-1673399772769188"></meta>
+        {/* adsense add code script */}
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1673399772769188" crossorigin="anonymous"></script>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
