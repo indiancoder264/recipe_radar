@@ -139,7 +139,7 @@ export default function ProfilePage() {
       </div>
       
       <Tabs defaultValue="account">
-        <TabsList className="mb-4">
+        <TabsList className="mb-4 flex h-auto flex-wrap justify-start">
           <TabsTrigger value="account">Account Settings</TabsTrigger>
           <TabsTrigger value="favorites">Favorite Recipes ({favoriteRecipes.length})</TabsTrigger>
           <TabsTrigger value="activity">My Activity ({userTips.length})</TabsTrigger>

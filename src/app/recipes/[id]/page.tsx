@@ -5,7 +5,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound, useParams, useRouter } from "next/navigation";
-import { Clock, Users, Star, ArrowLeft, Heart } from "lucide-react";
+import { Clock, Users, Star, ArrowLeft, Heart, RotateCw } from "lucide-react";
 
 import { useRecipes, type Recipe, type Tip } from "@/lib/recipes";
 import { useAuth } from "@/lib/auth";
@@ -25,6 +25,17 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
 import { StarRating } from "@/components/star-rating";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 // ────────────────────────────────────────────
 //  TipDisplay Component
@@ -123,6 +134,11 @@ export default function RecipePage() {
 
   const handleFinishCooking = () => {
     if (isCurrentStepConfirmed) setFinishedCooking(true);
+  };
+
+  const handleStartOver = () => {
+    setCurrentStep(0);
+    setFinishedCooking(false);
   };
 
   // ────────────── Tip form
@@ -285,56 +301,82 @@ export default function RecipePage() {
                 </Card>
               ) : (
                 <Card>
-                    <CardHeader>
-                        <h3 className="font-headline text-2xl md:text-3xl">
+                  <CardHeader>
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-headline text-2xl md:text-3xl">
                         Step {currentStep + 1} / {totalSteps}
-                        </h3>
-                    </CardHeader>
-                    <CardContent className="text-lg text-foreground/80 min-h-[120px]">
-                        <p className="mb-6">{recipe.steps[currentStep]}</p>
+                      </h3>
+                      {currentStep > 0 && (
+                        <AlertDialog>
+                          <AlertDialogTrigger asChild>
+                            <Button variant="ghost" size="icon">
+                              <RotateCw className="w-5 h-5 text-muted-foreground" />
+                              <span className="sr-only">Start Over</span>
+                            </Button>
+                          </AlertDialogTrigger>
+                          <AlertDialogContent>
+                            <AlertDialogHeader>
+                              <AlertDialogTitle>Are you sure you want to start over?</AlertDialogTitle>
+                              <AlertDialogDescription>
+                                Your current cooking progress will be lost and you will return to step 1.
+                              </AlertDialogDescription>
+                            </AlertDialogHeader>
+                            <AlertDialogFooter>
+                              <AlertDialogCancel>Cancel</AlertDialogCancel>
+                              <AlertDialogAction onClick={handleStartOver}>
+                                Yes, Start Over
+                              </AlertDialogAction>
+                            </AlertDialogFooter>
+                          </AlertDialogContent>
+                        </AlertDialog>
+                      )}
+                    </div>
+                  </CardHeader>
+                  <CardContent className="text-lg text-foreground/80 min-h-[120px]">
+                      <p className="mb-6">{recipe.steps[currentStep]}</p>
 
-                        <div className="flex items-center space-x-2">
-                        <Checkbox
-                            id={"step-confirm-" + currentStep}
-                            checked={isCurrentStepConfirmed}
-                            onCheckedChange={(chk) =>
-                            setIsCurrentStepConfirmed(!!chk)
-                            }
-                        />
-                        <label
-                            htmlFor={"step-confirm-" + currentStep}
-                            className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                        >
-                            I have completed this step
-                        </label>
-                        </div>
-                    </CardContent>
+                      <div className="flex items-center space-x-2">
+                      <Checkbox
+                          id={"step-confirm-" + currentStep}
+                          checked={isCurrentStepConfirmed}
+                          onCheckedChange={(chk) =>
+                          setIsCurrentStepConfirmed(!!chk)
+                          }
+                      />
+                      <label
+                          htmlFor={"step-confirm-" + currentStep}
+                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                      >
+                          I have completed this step
+                      </label>
+                      </div>
+                  </CardContent>
 
-                    <CardFooter className="flex justify-between">
-                        <Button
-                        onClick={handlePrevStep}
-                        disabled={currentStep === 0}
-                        variant="outline"
-                        >
-                        Previous Step
-                        </Button>
+                  <CardFooter className="flex justify-between">
+                      <Button
+                      onClick={handlePrevStep}
+                      disabled={currentStep === 0}
+                      variant="outline"
+                      >
+                      Previous Step
+                      </Button>
 
-                        {currentStep < totalSteps - 1 ? (
-                        <Button
-                            onClick={handleNextStep}
-                            disabled={!isCurrentStepConfirmed}
-                        >
-                            Next Step
-                        </Button>
-                        ) : (
-                        <Button
-                            onClick={handleFinishCooking}
-                            disabled={finishedCooking || !isCurrentStepConfirmed}
-                        >
-                            I&apos;m Done!
-                        </Button>
-                        )}
-                    </CardFooter>
+                      {currentStep < totalSteps - 1 ? (
+                      <Button
+                          onClick={handleNextStep}
+                          disabled={!isCurrentStepConfirmed}
+                      >
+                          Next Step
+                      </Button>
+                      ) : (
+                      <Button
+                          onClick={handleFinishCooking}
+                          disabled={finishedCooking || !isCurrentStepConfirmed}
+                      >
+                          I&apos;m Done!
+                      </Button>
+                      )}
+                  </CardFooter>
                 </Card>
               )}
             </div>

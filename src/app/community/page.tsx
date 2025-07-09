@@ -8,6 +8,17 @@ import { useCommunity, type Group } from "@/lib/community";
 import { useAuth } from "@/lib/auth";
 import { PlusCircle, Users } from "lucide-react";
 import React from "react";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 function GroupCard({ group }: { group: Group }) {
   const { user } = useAuth();
@@ -45,7 +56,23 @@ function GroupCard({ group }: { group: Group }) {
             <Link href="/login">Join</Link>
           </Button>
         ) : isMember ? (
-          <Button variant="outline" onClick={handleLeave}>Leave</Button>
+          <AlertDialog>
+            <AlertDialogTrigger asChild>
+              <Button variant="outline">Leave</Button>
+            </AlertDialogTrigger>
+            <AlertDialogContent>
+              <AlertDialogHeader>
+                <AlertDialogTitle>Are you sure you want to leave?</AlertDialogTitle>
+                <AlertDialogDescription>
+                  You will lose membership to the group "{group.name}" and will no longer be able to post. You can rejoin at any time.
+                </AlertDialogDescription>
+              </AlertDialogHeader>
+              <AlertDialogFooter>
+                <AlertDialogCancel>Cancel</AlertDialogCancel>
+                <AlertDialogAction onClick={handleLeave}>Leave</AlertDialogAction>
+              </AlertDialogFooter>
+            </AlertDialogContent>
+          </AlertDialog>
         ) : (
           <Button onClick={handleJoin}>Join</Button>
         )}
@@ -65,7 +92,7 @@ export default function CommunityPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex justify-between items-center mb-8">
+      <div className="flex flex-col gap-4 mb-8 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="font-headline text-5xl font-bold">Community Groups</h1>
           <p className="text-muted-foreground text-lg mt-2">

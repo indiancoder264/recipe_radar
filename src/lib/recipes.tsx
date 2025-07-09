@@ -197,6 +197,9 @@ export const RecipeProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const addOrUpdateTip = (recipeId: string, tipData: { tip: string; rating: number }, user: User) => {
+    const recipeForCheck = recipes.find(r => r.id === recipeId);
+    const isUpdate = (recipeForCheck?.tips || []).some(t => t.userId === user.id);
+
     // Current local state logic:
     setRecipes(prevRecipes => {
         return prevRecipes.map(recipe => {
@@ -209,11 +212,9 @@ export const RecipeProvider = ({ children }: { children: ReactNode }) => {
                     newTips = [...(recipe.tips || [])];
                     const existingTip = newTips[existingTipIndex];
                     newTips[existingTipIndex] = { ...existingTip, tip: tipData.tip, rating: tipData.rating, modifiedAt: now };
-                    toast({ title: "Tip Updated", description: "Your tip has been successfully updated." });
                 } else {
                     const newTip: Tip = { id: `t${Date.now()}`, userId: user.id, userName: user.name, tip: tipData.tip, rating: tipData.rating, createdAt: now, modifiedAt: now };
                     newTips = [...(recipe.tips || []), newTip];
-                    toast({ title: "Success!", description: "Your tip and rating have been submitted." });
                 }
 
                 const totalRating = newTips.reduce((acc, t) => acc + t.rating, 0);
@@ -224,6 +225,13 @@ export const RecipeProvider = ({ children }: { children: ReactNode }) => {
             return recipe;
         });
     });
+
+    if (isUpdate) {
+        toast({ title: "Tip Updated", description: "Your tip has been successfully updated." });
+    } else {
+        toast({ title: "Success!", description: "Your tip and rating have been submitted." });
+    }
+
 
     /*
     // DATABASE INTEGRATION: Using a transaction to update tips and average rating

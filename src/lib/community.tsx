@@ -81,23 +81,33 @@ export const CommunityProvider = ({ children }: { children: ReactNode }) => {
   };
 
   const joinGroup = (groupId: string, userId: string) => {
+    let groupJoined = false;
     setGroups(prev => prev.map(group => {
       if (group.id === groupId && !group.members.includes(userId)) {
-        toast({ title: "Joined Group", description: "You are now a member of the group." });
+        groupJoined = true;
         return { ...group, members: [...group.members, userId] };
       }
       return group;
     }));
+
+    if (groupJoined) {
+      toast({ title: "Joined Group", description: "You are now a member of the group." });
+    }
   };
   
   const leaveGroup = (groupId: string, userId: string) => {
+    let groupLeft = false;
     setGroups(prev => prev.map(group => {
-      if (group.id === groupId) {
-        toast({ title: "Left Group", description: "You are no longer a member of this group." });
+      if (group.id === groupId && group.members.includes(userId)) {
+        groupLeft = true;
         return { ...group, members: group.members.filter(id => id !== userId) };
       }
       return group;
     }));
+
+    if (groupLeft) {
+      toast({ title: "Left Group", description: "You are no longer a member of this group." });
+    }
   };
   
   const addPost = (groupId: string, content: string, user: User) => {

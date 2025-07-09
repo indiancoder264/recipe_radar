@@ -20,6 +20,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { ArrowLeft, Users, Send, ThumbsUp, ThumbsDown, Share2 } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { useToast } from "@/hooks/use-toast";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
 
 const postSchema = z.object({
   content: z.string().min(1, "Post cannot be empty.").max(1000),
@@ -278,7 +289,23 @@ export default function GroupDetailPage() {
                         <Link href="/login">Join Group</Link>
                     </Button>
                     ) : isMember ? (
-                        <Button variant="outline" className="w-full" onClick={() => leaveGroup(group.id, user.id)}>Leave Group</Button>
+                      <AlertDialog>
+                        <AlertDialogTrigger asChild>
+                          <Button variant="outline" className="w-full">Leave Group</Button>
+                        </AlertDialogTrigger>
+                        <AlertDialogContent>
+                          <AlertDialogHeader>
+                            <AlertDialogTitle>Are you sure you want to leave?</AlertDialogTitle>
+                            <AlertDialogDescription>
+                              You will lose membership to the group "{group.name}" and will no longer be able to post. You can rejoin at any time.
+                            </AlertDialogDescription>
+                          </AlertDialogHeader>
+                          <AlertDialogFooter>
+                            <AlertDialogCancel>Cancel</AlertDialogCancel>
+                            <AlertDialogAction onClick={() => leaveGroup(group.id, user.id)}>Leave Group</AlertDialogAction>
+                          </AlertDialogFooter>
+                        </AlertDialogContent>
+                      </AlertDialog>
                     ) : (
                         <Button className="w-full" onClick={() => joinGroup(group.id, user.id)}>Join Group</Button>
                     )
